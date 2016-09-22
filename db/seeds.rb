@@ -16,3 +16,19 @@ Task.create(user_id: User.find_by_name("John Smith").id, text: 'Introduce myself
 Task.create(user_id: User.find_by_name("Hiroyuki Tanaka").id, text: 'Buy the milk', date: "2015-09-22", status: 10, priority: nil)
 Task.create(user_id: User.find_by_name("Hiroyuki Tanaka").id, text: 'Study Rails5', date: "2016-03-25", status: 11, priority: 1)
 Task.create(user_id: User.find_by_name("John Smith").id, text: 'Introduce myself', date: "2016-06-24", status: 12, priority: 2)
+
+Diary.create(user_id: User.find_by_name("Hiroyuki Tanaka").id, body: "こんにちは", date: Date.today)
+Diary.create(user_id: User.find_by_name("Hiroyuki Tanaka").id, body: "テスト投稿", date: Date.today)
+
+Tag.create(name: "test")
+Tag.create(name: "ruby")
+Tag.create(name: "javascript")
+Tag.create(name: "rails")
+
+DiaryTag.create(diary_id: 1, tag_id: 2)
+DiaryTag.create(diary_id: 1, tag_id: 4)
+
+DiaryTag.create(diary_id: 2, tag_id: 1)
+DiaryTag.create(diary_id: 2, tag_id: 2)
+DiaryTag.create(diary_id: 2, tag_id: 3)
+DiaryTag.create(diary_id: 2, tag_id: 4)
