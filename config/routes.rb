@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root to: 'date#index'
-
   resources :tags
   resources :diaries
   resources :tasks
