@@ -13,9 +13,9 @@ Task.create(user_id: User.find_by_name("Hiroyuki Tanaka").id, text: 'Buy the mil
 Task.create(user_id: User.find_by_name("Hiroyuki Tanaka").id, text: 'Study Rails5', date: Date.today, status: 2, priority: 1)
 Task.create(user_id: User.find_by_name("John Smith").id, text: 'Introduce myself', date: Date.today, status: 1, priority: 2)
 
-Task.create(user_id: User.find_by_name("Hiroyuki Tanaka").id, text: 'Buy the milk', date: "2015-09-22", status: 10, priority: nil)
-Task.create(user_id: User.find_by_name("Hiroyuki Tanaka").id, text: 'Study Rails5', date: "2016-03-25", status: 11, priority: 1)
-Task.create(user_id: User.find_by_name("John Smith").id, text: 'Introduce myself', date: "2016-06-24", status: 12, priority: 2)
+Task.create(user_id: User.find_by_name("Hiroyuki Tanaka").id, text: 'Buy the milk', date: "2015-09-22", status: 1, priority: nil)
+Task.create(user_id: User.find_by_name("Hiroyuki Tanaka").id, text: 'Study Rails5', date: "2016-03-25", status: 3, priority: 1)
+Task.create(user_id: User.find_by_name("John Smith").id, text: 'Introduce myself', date: "2016-06-24", status: 2, priority: 2)
 
 Diary.create(user_id: User.find_by_name("Hiroyuki Tanaka").id, body: "こんにちは", date: Date.today)
 Diary.create(user_id: User.find_by_name("Hiroyuki Tanaka").id, body: "テスト投稿", date: Date.today)
