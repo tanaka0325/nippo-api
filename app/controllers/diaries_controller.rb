@@ -13,6 +13,12 @@ class DiariesController < ApplicationController
     render json: @diary
   end
 
+  # GET /diaries/2016-09-23
+  def date
+    @diary = Diary.where("date" => params['date'])
+    render json: @diary
+  end
+
   # POST /diaries
   def create
     @diary = Diary.new(diary_params)
