@@ -40,10 +40,11 @@ ActiveRecord::Schema.define(version: 20160922062243) do
     t.integer  "user_id"
     t.string   "text"
     t.date     "date"
+    t.date     "complete_date"
     t.integer  "status"
     t.integer  "priority"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 

@@ -4,6 +4,7 @@ class CreateTasks < ActiveRecord::Migration[5.0]
       t.references :user, foreign_key: true
       t.string :text
       t.date :date
+      t.date :complete_date
       t.integer :status
       t.integer :priority, :null => true, :default => nil
 
