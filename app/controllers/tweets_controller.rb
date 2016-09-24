@@ -13,6 +13,12 @@ class TweetsController < ApplicationController
     render json: @tweet
   end
 
+  # GET /tweets/2016-09-23
+  def date
+    @tweets = Tweet.where("date" => params['date'])
+    render json: @tweets
+  end
+
   # POST /tweets
   def create
     @tweet = Tweet.new(tweet_params)
