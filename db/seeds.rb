@@ -33,5 +33,5 @@ DiaryTag.create(diary_id: 2, tag_id: 2)
 DiaryTag.create(diary_id: 2, tag_id: 3)
 DiaryTag.create(diary_id: 2, tag_id: 4)
 
-Tweet.create(message: "こんにちは")
-Tweet.create(message: "今日はいい天気ですね")
+Tweet.create(message: "こんにちは", date: Date.today)
+Tweet.create(message: "今日はいい天気ですね", date: Date.today)
