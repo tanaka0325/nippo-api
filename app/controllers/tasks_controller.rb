@@ -13,7 +13,7 @@ class TasksController < ApplicationController
     render json: @task
   end
 
-  # GET /diaries/2016-09-23
+  # GET /tasks/2016-09-23
   def date
     @tasks = Task.where("date" => params['date'])
     render json: @tasks

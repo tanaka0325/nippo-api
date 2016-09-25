@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   match "tasks/date/:date", :to => "tasks#date", :via => :get
   match "diaries/date/:date", :to => "diaries#date", :via => :get
   match "tweets/date/:date", :to => "tweets#date", :via => :get
+  match "timelines/date/:date", :to => "timelines#date", :via => :get
 end

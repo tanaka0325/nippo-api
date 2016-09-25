@@ -13,6 +13,12 @@ class TimelinesController < ApplicationController
     render json: @timeline
   end
 
+  # GET /timelines/2016-09-23
+  def date
+    @timelines = Timeline.where("date" => params['date'])
+    render json: @timelines
+  end
+
   # POST /timelines
   def create
     @timeline = Timeline.new(timeline_params)
