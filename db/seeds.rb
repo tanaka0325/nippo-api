@@ -38,3 +38,12 @@ Tweet.create(user_id: User.find_by_name("Hiroyuki Tanaka").id, message: "今日�
 
 Type.create(name: "tweet")
 Type.create(name: "task")
+
+Action.create(name: "add", type_id: Type.find_by_name("task").id)
+Action.create(name: "start", type_id: Type.find_by_name("task").id)
+Action.create(name: "done", type_id: Type.find_by_name("task").id)
+Action.create(name: "remove", type_id: Type.find_by_name("task").id)
+
+Action.create(name: "tweet", type_id: Type.find_by_name("tweet").id)
+Action.create(name: "remove", type_id: Type.find_by_name("tweet").id)
+Action.create(name: "edit", type_id: Type.find_by_name("tweet").id)
