@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :timelines
   resources :tweets
   resources :tags
   resources :diaries
