@@ -35,3 +35,6 @@ DiaryTag.create(diary_id: 2, tag_id: 4)
 
 Tweet.create(user_id: User.find_by_name("Hiroyuki Tanaka").id, message: "こんにちは", date: Date.today, status: 1)
 Tweet.create(user_id: User.find_by_name("Hiroyuki Tanaka").id, message: "今日はいい天気ですね", date: Date.today, status: 1)
+
+Type.create(name: "tweet")
+Type.create(name: "task")
