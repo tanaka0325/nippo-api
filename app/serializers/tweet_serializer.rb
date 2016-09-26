@@ -1,3 +1,3 @@
 class TweetSerializer < ActiveModel::Serializer
-  attributes :id, :date, :status, :message
+  attributes :id, :date, :status, :message, :created_at
 end

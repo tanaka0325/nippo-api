@@ -1,5 +1,5 @@
 class ActionLogSerializer < ActiveModel::Serializer
-  attributes :id, :action, :target
+  attributes :id, :action, :target, :created_at
   has_one :action
 
   def target
