@@ -1,2 +1,0 @@
-class TweetActionType < ApplicationRecord
-end

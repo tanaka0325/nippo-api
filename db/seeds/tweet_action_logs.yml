@@ -1,9 +1,0 @@
-tweet_action_logs:
-  -
-    id: 1
-    tweet_id: 1
-    tweet_action_type_id: 1
-  -
-    id: 2
-    tweet_id: 2
-    tweet_action_type_id: 1

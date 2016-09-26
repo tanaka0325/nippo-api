@@ -1,0 +1,2 @@
+class ActionClass < ApplicationRecord
+end

@@ -10,21 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160926032550) do
+ActiveRecord::Schema.define(version: 20160926042307) do
 
-  create_table "task_action_logs", force: :cascade do |t|
-    t.integer  "task_action_type_id"
-    t.integer  "task_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.index ["task_action_type_id"], name: "index_task_action_logs_on_task_action_type_id"
-    t.index ["task_id"], name: "index_task_action_logs_on_task_id"
-  end
-
-  create_table "task_action_types", force: :cascade do |t|
+  create_table "action_classes", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "action_logs", force: :cascade do |t|
+    t.integer  "action_id"
+    t.integer  "target_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["action_id"], name: "index_action_logs_on_action_id"
+  end
+
+  create_table "actions", force: :cascade do |t|
+    t.integer  "action_class_id"
+    t.string   "name"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["action_class_id"], name: "index_actions_on_action_class_id"
   end
 
   create_table "task_statuses", force: :cascade do |t|
@@ -42,21 +49,6 @@ ActiveRecord::Schema.define(version: 20160926032550) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_tasks_on_user_id"
-  end
-
-  create_table "tweet_action_logs", force: :cascade do |t|
-    t.integer  "tweet_action_type_id"
-    t.integer  "tweet_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.index ["tweet_action_type_id"], name: "index_tweet_action_logs_on_tweet_action_type_id"
-    t.index ["tweet_id"], name: "index_tweet_action_logs_on_tweet_id"
-  end
-
-  create_table "tweet_action_types", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "tweet_statuses", force: :cascade do |t|

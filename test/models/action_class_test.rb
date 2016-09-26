@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TaskActionLogTest < ActiveSupport::TestCase
+class ActionClassTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -1,0 +1,29 @@
+actions:
+  -
+    id: 1
+    action_class_id: 1
+    name: 'post'
+  -
+    id: 2
+    action_class_id: 1
+    name: 'delete'
+  -
+    id: 3
+    action_class_id: 1
+    name: edit
+  -
+    id: 4
+    action_class_id: 2
+    name: 'add'
+  -
+    id: 5
+    action_class_id: 2
+    name: 'start'
+  -
+    id: 6
+    action_class_id: 2
+    name: 'done'
+  -
+    id: 7
+    action_class_id: 2
+    name: 'edit'

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TweetActionTypeTest < ActiveSupport::TestCase
+class ActionLogTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
