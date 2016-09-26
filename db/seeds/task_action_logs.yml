@@ -1,0 +1,5 @@
+task_action_logs:
+  -
+    id: 1
+    task_action_type_id: 1
+    task_id: 1

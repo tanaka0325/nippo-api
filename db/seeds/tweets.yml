@@ -1,0 +1,19 @@
+tweets:
+  -
+    id: 1
+    user_id: 1
+    date: '2016-09-26'
+    status: 1
+    message: 'こんにちは'
+  -
+    id: 2
+    user_id: 1
+    date: '2016-09-26'
+    status: 1
+    message: 'てすとてすとー'
+  -
+    id: 3
+    user_id: 1
+    date: '2016-09-26'
+    status: 2
+    message: 'ほげほげ'

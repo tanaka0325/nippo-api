@@ -1,0 +1,15 @@
+tasks:
+  -
+    id: 1
+    user_id: 1
+    date: '2016-09-26'
+    text: 'Buy the milk'
+    status: 1
+    priority: 1
+  -
+    id: 2
+    user_id: 1
+    date: '2016-09-26'
+    text: 'Develop nippo'
+    status: 1
+    priority: 0

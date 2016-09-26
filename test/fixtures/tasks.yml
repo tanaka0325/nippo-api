@@ -2,14 +2,14 @@
 
 one:
   user: one
+  date: 2016-09-26
   text: MyString
-  date: 2016-09-22
   status: 1
   priority: 1
 
 two:
   user: two
+  date: 2016-09-26
   text: MyString
-  date: 2016-09-22
   status: 1
   priority: 1

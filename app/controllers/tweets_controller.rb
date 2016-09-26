@@ -13,9 +13,9 @@ class TweetsController < ApplicationController
     render json: @tweet
   end
 
-  # GET /tweets/2016-09-23
+  # GET /tweets/date/2016-06-24
   def date
-    @tweets = Tweet.where("date" => params['date'])
+    @tweets = Tweet.where("date"=> params[:date])
     render json: @tweets
   end
 
@@ -52,6 +52,6 @@ class TweetsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def tweet_params
-      params.require(:tweet).permit(:user_id, :status, :message, :date)
+      params.require(:tweet).permit(:user_id, :date, :status, :message)
     end
 end

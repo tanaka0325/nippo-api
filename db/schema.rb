@@ -10,35 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160925135550) do
+ActiveRecord::Schema.define(version: 20160926032550) do
 
-  create_table "actions", force: :cascade do |t|
+  create_table "task_action_logs", force: :cascade do |t|
+    t.integer  "task_action_type_id"
+    t.integer  "task_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["task_action_type_id"], name: "index_task_action_logs_on_task_action_type_id"
+    t.index ["task_id"], name: "index_task_action_logs_on_task_id"
+  end
+
+  create_table "task_action_types", force: :cascade do |t|
     t.string   "name"
-    t.integer  "type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["type_id"], name: "index_actions_on_type_id"
   end
 
-  create_table "diaries", force: :cascade do |t|
-    t.integer  "user_id"
-    t.text     "body"
-    t.date     "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_diaries_on_user_id"
-  end
-
-  create_table "diary_tags", force: :cascade do |t|
-    t.integer  "diary_id"
-    t.integer  "tag_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["diary_id"], name: "index_diary_tags_on_diary_id"
-    t.index ["tag_id"], name: "index_diary_tags_on_tag_id"
-  end
-
-  create_table "tags", force: :cascade do |t|
+  create_table "task_statuses", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -46,40 +35,44 @@ ActiveRecord::Schema.define(version: 20160925135550) do
 
   create_table "tasks", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "text"
     t.date     "date"
-    t.date     "complete_date"
+    t.string   "text"
     t.integer  "status"
     t.integer  "priority"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
-  create_table "timelines", force: :cascade do |t|
-    t.date     "date"
-    t.integer  "user_id"
-    t.integer  "action_id"
+  create_table "tweet_action_logs", force: :cascade do |t|
+    t.integer  "tweet_action_type_id"
+    t.integer  "tweet_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["tweet_action_type_id"], name: "index_tweet_action_logs_on_tweet_action_type_id"
+    t.index ["tweet_id"], name: "index_tweet_action_logs_on_tweet_id"
+  end
+
+  create_table "tweet_action_types", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["action_id"], name: "index_timelines_on_action_id"
-    t.index ["user_id"], name: "index_timelines_on_user_id"
+  end
+
+  create_table "tweet_statuses", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tweets", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "message"
     t.date     "date"
     t.integer  "status"
+    t.string   "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_tweets_on_user_id"
-  end
-
-  create_table "types", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

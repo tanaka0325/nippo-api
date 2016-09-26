@@ -1,7 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  user: one
+  date: 2016-09-26
+  status: 1
   message: MyString
 
 two:
+  user: two
+  date: 2016-09-26
+  status: 1
   message: MyString

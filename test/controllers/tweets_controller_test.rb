@@ -12,7 +12,7 @@ class TweetsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create tweet" do
     assert_difference('Tweet.count') do
-      post tweets_url, params: { tweet: { message: @tweet.message } }, as: :json
+      post tweets_url, params: { tweet: { date: @tweet.date, message: @tweet.message, status: @tweet.status, user_id: @tweet.user_id } }, as: :json
     end
 
     assert_response 201
@@ -24,7 +24,7 @@ class TweetsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update tweet" do
-    patch tweet_url(@tweet), params: { tweet: { message: @tweet.message } }, as: :json
+    patch tweet_url(@tweet), params: { tweet: { date: @tweet.date, message: @tweet.message, status: @tweet.status, user_id: @tweet.user_id } }, as: :json
     assert_response 200
   end
 

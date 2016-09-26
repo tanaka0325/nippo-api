@@ -1,0 +1,2 @@
+class TweetStatus < ApplicationRecord
+end

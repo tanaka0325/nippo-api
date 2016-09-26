@@ -13,9 +13,9 @@ class TasksController < ApplicationController
     render json: @task
   end
 
-  # GET /tasks/2016-09-23
+  # GET /tweets/date/2016-06-24
   def date
-    @tasks = Task.where("date" => params['date'])
+    @tasks = Task.where("date"=> params[:date])
     render json: @tasks
   end
 
@@ -52,6 +52,6 @@ class TasksController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def task_params
-      params.require(:task).permit(:user_id, :text, :date, :status, :priority)
+      params.require(:task).permit(:user_id, :date, :text, :status, :priority)
     end
 end

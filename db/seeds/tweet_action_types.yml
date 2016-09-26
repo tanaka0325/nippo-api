@@ -1,0 +1,10 @@
+tweet_action_types:
+  -
+    id: 1
+    name: 'post'
+  -
+    id: 2
+    name: 'delete'
+  -
+    id: 3
+    name: 'edit'

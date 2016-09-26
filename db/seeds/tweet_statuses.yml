@@ -1,0 +1,10 @@
+tweet_statuses:
+  -
+    id: 1
+    name: 'published'
+  -
+    id: 2
+    name: 'deleted'
+  -
+    id: 3
+    name: 'unpublished'

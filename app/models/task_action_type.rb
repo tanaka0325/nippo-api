@@ -1,0 +1,2 @@
+class TaskActionType < ApplicationRecord
+end

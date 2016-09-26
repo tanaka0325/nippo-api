@@ -1,0 +1,13 @@
+task_action_types:
+  -
+    id: 1
+    name: 'add'
+  -
+    id: 2
+    name: 'start'
+  -
+    id: 3
+    name: 'done'
+  -
+    id: 4
+    name: 'edit'

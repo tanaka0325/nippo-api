@@ -1,0 +1,2 @@
+class TweetActionType < ApplicationRecord
+end

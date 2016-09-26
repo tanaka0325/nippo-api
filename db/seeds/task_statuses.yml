@@ -1,0 +1,10 @@
+task_statuses:
+  -
+    id: 1
+    name: 'not yet'
+  -
+    id: 2
+    name: 'doing'
+  -
+    id: 3
+    name: 'done'
