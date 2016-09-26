@@ -10,7 +10,7 @@ actions:
   -
     id: 3
     action_class_id: 1
-    name: edit
+    name: 'edit'
   -
     id: 4
     action_class_id: 2
