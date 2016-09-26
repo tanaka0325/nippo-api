@@ -1,6 +1,14 @@
 class ActionLogSerializer < ActiveModel::Serializer
-  attributes :id, :action, :target, :created_at
-  has_one :action
+  attributes :id, :target, :created_at, :action_name, :type
+  # has_one :action
+
+  def action_name
+    object.action.name
+  end
+
+  def type
+    object.action.action_class.name
+  end
 
   def target
     @model_name = object.action.action_class.name.classify
