@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-[User, TaskStatus, Task, TweetStatus, Tweet, ActionClass, Action, ActionLog].each do |c|
+[User, ActionClass, Action, ActionLog, TaskStatus, Task, TweetStatus, Tweet].each do |c|
   yml = File.read("#{Rails.root}/db/seeds/#{c.to_s.tableize}.yml")
   list = YAML.load(yml).symbolize_keys
   list[c.to_s.tableize.to_sym].each do |r|
