@@ -15,7 +15,7 @@ class TasksController < ApplicationController
 
   # GET /tweets/date/2016-06-24
   def date
-    @tasks = Task.where("date"=> params[:date])
+    @tasks = Task.where("date"=> params[:date]).order(created_at: :desc)
     render json: @tasks
   end
 
