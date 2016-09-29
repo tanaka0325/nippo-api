@@ -4,7 +4,7 @@ class CreateTweets < ActiveRecord::Migration[5.0]
       t.references :user, foreign_key: true
       t.date :date
       t.integer :status
-      t.string :message
+      t.string :text
 
       t.timestamps
     end
