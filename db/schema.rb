@@ -20,9 +20,11 @@ ActiveRecord::Schema.define(version: 20160926042307) do
 
   create_table "action_logs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "action_id"
+    t.integer  "action_class_id"
     t.integer  "target_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["action_class_id"], name: "index_action_logs_on_action_class_id", using: :btree
     t.index ["action_id"], name: "index_action_logs_on_action_id", using: :btree
   end
 
@@ -74,6 +76,7 @@ ActiveRecord::Schema.define(version: 20160926042307) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "action_logs", "action_classes"
   add_foreign_key "action_logs", "actions"
   add_foreign_key "actions", "action_classes"
   add_foreign_key "tasks", "users"
