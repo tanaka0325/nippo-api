@@ -4,16 +4,16 @@ tweets:
     user_id: 1
     date: '2016-09-26'
     status: 1
-    message: 'こんにちは'
+    text: 'こんにちは'
   -
     id: 2
     user_id: 1
     date: '2016-09-26'
     status: 1
-    message: 'てすとてすとー'
+    text: 'てすとてすとー'
   -
     id: 3
     user_id: 1
     date: '2016-09-26'
     status: 2
-    message: 'ほげほげ'
+    text: 'ほげほげ'
