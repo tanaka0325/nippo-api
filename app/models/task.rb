@@ -17,9 +17,9 @@ class Task < ApplicationRecord
   end
 
   def destroy_action_log
-    @task_log = ActionLog.find_by(self.id);
+    @task_log = ActionLog.where(["target_id = ? and action_class_id = ?", self.id, 2]);
 
-    if @task_log.destory
+    if @task_log.delete_all
       return true
     else
       raise ActiveRecord::Rollback
