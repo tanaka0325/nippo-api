@@ -1,7 +1,7 @@
 class Task < ApplicationRecord
   belongs_to :user
 
-  after_save :add_action_log
+  after_create :add_action_log
   after_destroy :destroy_action_log
 
   def add_action_log
