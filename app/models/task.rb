@@ -4,7 +4,7 @@ class Task < ApplicationRecord
   after_save :add_action_log
 
   def add_action_log
-    @task_log = ActionLog.new({action_id: 4, target_id: self.id})
+    @task_log = ActionLog.new({action_id: 4, target_id: self.id, action_class_id: 2})
 
     if @task_log.save
       return true

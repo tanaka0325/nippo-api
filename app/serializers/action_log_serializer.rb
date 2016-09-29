@@ -7,11 +7,11 @@ class ActionLogSerializer < ActiveModel::Serializer
   end
 
   def type
-    object.action.action_class.name
+    object.action_class.name
   end
 
   def target
-    @model_name = object.action.action_class.name.classify
+    @model_name = object.action_class.name.classify
     @id = object.target_id
 
     ActiveModelSerializers::SerializableResource.new(@model_name.constantize.find_by_id(@id), {})

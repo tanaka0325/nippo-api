@@ -2,24 +2,30 @@ action_logs:
   -
     id: 1
     action_id: 1
+    action_class_id: 1
     target_id: 1
   -
     id: 2
     action_id: 1
+    action_class_id: 1
     target_id: 2
   -
     id: 3
     action_id: 1
+    action_class_id: 1
     target_id: 3
   -
     id: 4
     action_id: 2
+    action_class_id: 2
     target_id: 3
   -
     id: 5
     action_id: 4
+    action_class_id: 2
     target_id: 1
   -
     id: 6
     action_id: 4
+    action_class_id: 2
     target_id: 2
