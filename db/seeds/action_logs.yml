@@ -16,16 +16,11 @@ action_logs:
     target_id: 3
   -
     id: 4
-    action_id: 2
-    action_class_id: 2
-    target_id: 3
-  -
-    id: 5
     action_id: 4
     action_class_id: 2
     target_id: 1
   -
-    id: 6
+    id: 5
     action_id: 4
     action_class_id: 2
     target_id: 2
