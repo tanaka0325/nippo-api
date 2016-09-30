@@ -1,15 +1,15 @@
 class TweetActionSerializer < ActiveModel::Serializer
-  attributes :date, :action_type, :action_class_name, :tweet
+  attributes :date, :type, :class_name, :target
 
-  def action_class_name
+  def class_name
     'tweet'
   end
 
-  def action_type
+  def type
     TweetAction::ACTION_TYPE.key(object.action_type)
   end
 
-  def tweet
+  def target
     ActiveModelSerializers::SerializableResource.new(object.tweet, {})
   end
 

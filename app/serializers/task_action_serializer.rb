@@ -1,15 +1,15 @@
 class TaskActionSerializer < ActiveModel::Serializer
-  attributes :date, :action_type, :action_class_name, :task
+  attributes :date, :type, :class_name, :target
 
-  def action_class_name
+  def class_name
     'task'
   end
 
-  def action_type
+  def type
     TaskAction::ACTION_TYPE.key(object.action_type)
   end
 
-  def task
+  def target
     ActiveModelSerializers::SerializableResource.new(object.task, {})
   end
 
