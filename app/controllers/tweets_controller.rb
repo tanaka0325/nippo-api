@@ -24,6 +24,12 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
 
     if @tweet.save
+      @action = @tweet.tweet_action.build({
+        user_id: @tweet.user_id,
+        action_type: 1,
+        date: @tweet.date
+      })
+      @action.save
       render json: @tweet, status: :created, location: @tweet
     else
       render json: @tweet.errors, status: :unprocessable_entity

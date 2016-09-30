@@ -24,10 +24,17 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
+      @action = @task.task_action.build({
+        user: @task.user,
+        action_type: 1,
+        date: @task.date
+      })
+      @action.save
       render json: @task, status: :created, location: @task
     else
       render json: @task.errors, status: :unprocessable_entity
     end
+
   end
 
   # PATCH/PUT /tasks/1
