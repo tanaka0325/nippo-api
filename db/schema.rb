@@ -14,48 +14,48 @@ ActiveRecord::Schema.define(version: 20160930053106) do
 
   create_table "task_actions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
-    t.integer  "target_id"
-    t.integer  "action_type"
-    t.date     "date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "target_id",                          null: false
+    t.integer  "action_type",                        null: false
+    t.date     "date",        default: '2016-09-30', null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.index ["user_id"], name: "index_task_actions_on_user_id", using: :btree
   end
 
   create_table "tasks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
-    t.date     "date"
-    t.string   "text"
-    t.integer  "status"
-    t.integer  "priority"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.date     "date",       default: '2016-09-30', null: false
+    t.string   "text",                              null: false
+    t.integer  "status",     default: 1,            null: false
+    t.integer  "priority",   default: 1,            null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.index ["user_id"], name: "index_tasks_on_user_id", using: :btree
   end
 
   create_table "tweet_actions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
-    t.integer  "target_id"
-    t.integer  "action_type"
-    t.date     "date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "target_id",                          null: false
+    t.integer  "action_type",                        null: false
+    t.date     "date",        default: '2016-09-30', null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.index ["user_id"], name: "index_tweet_actions_on_user_id", using: :btree
   end
 
   create_table "tweets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
-    t.date     "date"
-    t.integer  "status"
-    t.string   "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.date     "date",       default: '2016-09-30', null: false
+    t.integer  "status",     default: 1,            null: false
+    t.string   "text",                              null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.index ["user_id"], name: "index_tweets_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.string   "email"
+    t.string   "name",       null: false
+    t.string   "email",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

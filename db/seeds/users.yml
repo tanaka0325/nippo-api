@@ -2,6 +2,8 @@ users:
   -
     id: 1
     name: 'tanaka'
+    email: 'example@example.com'
   -
     id: 2
     name: 'john'
+    email: 'example@example.com'
