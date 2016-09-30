@@ -1,2 +1,0 @@
-class TweetStatus < ApplicationRecord
-end
