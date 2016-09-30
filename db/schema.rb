@@ -10,36 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160926042307) do
+ActiveRecord::Schema.define(version: 20160930053106) do
 
-  create_table "action_classes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "action_logs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "action_id"
-    t.integer  "action_class_id"
-    t.integer  "target_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["action_class_id"], name: "index_action_logs_on_action_class_id", using: :btree
-    t.index ["action_id"], name: "index_action_logs_on_action_id", using: :btree
-  end
-
-  create_table "actions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "action_class_id"
-    t.string   "name"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["action_class_id"], name: "index_actions_on_action_class_id", using: :btree
-  end
-
-  create_table "task_statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "task_actions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "task_id"
+    t.integer  "action_type"
+    t.date     "date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["task_id"], name: "index_task_actions_on_task_id", using: :btree
+    t.index ["user_id"], name: "index_task_actions_on_user_id", using: :btree
   end
 
   create_table "tasks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -53,10 +34,15 @@ ActiveRecord::Schema.define(version: 20160926042307) do
     t.index ["user_id"], name: "index_tasks_on_user_id", using: :btree
   end
 
-  create_table "tweet_statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "tweet_actions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "tweet_id"
+    t.integer  "action_type"
+    t.date     "date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["tweet_id"], name: "index_tweet_actions_on_tweet_id", using: :btree
+    t.index ["user_id"], name: "index_tweet_actions_on_user_id", using: :btree
   end
 
   create_table "tweets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -76,9 +62,10 @@ ActiveRecord::Schema.define(version: 20160926042307) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "action_logs", "action_classes"
-  add_foreign_key "action_logs", "actions"
-  add_foreign_key "actions", "action_classes"
+  add_foreign_key "task_actions", "tasks"
+  add_foreign_key "task_actions", "users"
   add_foreign_key "tasks", "users"
+  add_foreign_key "tweet_actions", "tweets"
+  add_foreign_key "tweet_actions", "users"
   add_foreign_key "tweets", "users"
 end

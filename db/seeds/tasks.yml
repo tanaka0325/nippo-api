@@ -2,14 +2,14 @@ tasks:
   -
     id: 1
     user_id: 1
-    date: '2016-09-26'
+    date: '2016-09-30'
     text: 'Buy the milk'
-    status: 1
+    status: 3
     priority: 1
   -
     id: 2
     user_id: 1
-    date: '2016-09-26'
+    date: '2016-09-30'
     text: 'Develop nippo'
     status: 1
-    priority: 0
+    priority: 2
