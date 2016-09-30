@@ -1,12 +1,13 @@
 class TimelineController < ApplicationController
   def index
-    @logs = ActionLog.all
-    render json: @logs
+    @task_actions = TaskAction.all
+    @tweet_actions = TweetAction.all
+    render json: [@task_actions, @tweet_actions].flatten
   end
 
   def date
-    @date = Date.strptime(params[:date], "%Y-%m-%d")
-    @logs = ActionLog.where(created_at: @date.beginning_of_day..@date.end_of_day).order(created_at: :desc).limit(5)
-    render json: @logs
+    @task_actions = TaskAction.where(date: params[:date])
+    @tweet_actions = TweetAction.where(date: params[:date])
+    render json: [@task_actions, @tweet_actions].flatten
   end
 end
