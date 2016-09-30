@@ -1,6 +1,6 @@
 class Task < ApplicationRecord
   belongs_to :user
-  has_many :task_action, foreign_key: :target_id
+  has_many :task_action, foreign_key: :target_id, dependent: :destroy
 
   STATUS = {
     not_yet: 1,
