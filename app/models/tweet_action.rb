@@ -1,6 +1,6 @@
 class TweetAction < ApplicationRecord
   belongs_to :user
-  belongs_to :tweet
+  belongs_to :tweet, foreign_key: :target_id
 
   ACTION_TYPE = {
     post: 1,

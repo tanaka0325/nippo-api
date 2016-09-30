@@ -14,12 +14,11 @@ ActiveRecord::Schema.define(version: 20160930053106) do
 
   create_table "task_actions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
-    t.integer  "task_id"
+    t.integer  "target_id"
     t.integer  "action_type"
     t.date     "date"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["task_id"], name: "index_task_actions_on_task_id", using: :btree
     t.index ["user_id"], name: "index_task_actions_on_user_id", using: :btree
   end
 
@@ -36,12 +35,11 @@ ActiveRecord::Schema.define(version: 20160930053106) do
 
   create_table "tweet_actions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
-    t.integer  "tweet_id"
+    t.integer  "target_id"
     t.integer  "action_type"
     t.date     "date"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["tweet_id"], name: "index_tweet_actions_on_tweet_id", using: :btree
     t.index ["user_id"], name: "index_tweet_actions_on_user_id", using: :btree
   end
 
@@ -62,10 +60,8 @@ ActiveRecord::Schema.define(version: 20160930053106) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "task_actions", "tasks"
   add_foreign_key "task_actions", "users"
   add_foreign_key "tasks", "users"
-  add_foreign_key "tweet_actions", "tweets"
   add_foreign_key "tweet_actions", "users"
   add_foreign_key "tweets", "users"
 end

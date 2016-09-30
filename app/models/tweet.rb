@@ -1,6 +1,6 @@
 class Tweet < ApplicationRecord
   belongs_to :user
-  has_many :tweet_action
+  has_many :tweet_action, foreign_key: :target_id
   
   STATUS = {
     public: 1,
