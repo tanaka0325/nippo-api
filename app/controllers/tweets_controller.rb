@@ -4,7 +4,6 @@ class TweetsController < ApplicationController
   # GET /tweets
   def index
     @tweets = Tweet.all
-
     render json: @tweets
   end
 
@@ -39,6 +38,24 @@ class TweetsController < ApplicationController
   # PATCH/PUT /tweets/1
   def update
     if @tweet.update(tweet_params)
+      @action = @tweet.tweet_action.build({
+        user_id: @tweet.user_id,
+        date: @tweet.date,
+      })
+
+      if tweet_params.has_key?(:status)
+        if @tweet.status === Tweet::STATUS[:private]
+          @action.action_type = TweetAction::ACTION_TYPE[:unpublish]
+        elsif @tweet.status === Tweet::STATUS[:public]
+          @action.action_type = TweetAction::ACTION_TYPE[:publish]
+        elsif @tweet.status === Tweet::STATUS[:deleted]
+          @action.action_type = TweetAction::ACTION_TYPE[:delete]
+        else
+          @action.action_type = nil
+        end
+      end
+      @action.save
+
       render json: @tweet
     else
       render json: @tweet.errors, status: :unprocessable_entity

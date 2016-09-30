@@ -4,7 +4,6 @@ class TasksController < ApplicationController
   # GET /tasks
   def index
     @tasks = Task.all
-
     render json: @tasks
   end
 
@@ -34,12 +33,31 @@ class TasksController < ApplicationController
     else
       render json: @task.errors, status: :unprocessable_entity
     end
-
   end
 
   # PATCH/PUT /tasks/1
   def update
     if @task.update(task_params)
+      @action = @task.task_action.build({
+        user_id: @task.user_id,
+        date: @task.date,
+      })
+
+      if task_params.has_key?(:priority)
+        @action.action_type = TaskAction::ACTION_TYPE[:change_priority]
+      end
+
+      if task_params.has_key?(:status)
+        if @task.status === Task::STATUS[:doing]
+          @action.action_type = TaskAction::ACTION_TYPE[:begin]
+        elsif @task.status === Task::STATUS[:done]
+          @action.action_type = TaskAction::ACTION_TYPE[:end]
+        else
+          @action.action_type = nil
+        end
+      end
+      @action.save
+
       render json: @task
     else
       render json: @task.errors, status: :unprocessable_entity
