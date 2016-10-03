@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160930053106) do
+ActiveRecord::Schema.define(version: 20161003120522) do
+
+  create_table "reports", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.date     "date"
+    t.string   "title"
+    t.text     "body",       limit: 65535
+    t.integer  "status"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["user_id"], name: "index_reports_on_user_id", using: :btree
+  end
 
   create_table "task_actions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -60,6 +71,7 @@ ActiveRecord::Schema.define(version: 20160930053106) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "reports", "users"
   add_foreign_key "task_actions", "users"
   add_foreign_key "tasks", "users"
   add_foreign_key "tweet_actions", "users"
