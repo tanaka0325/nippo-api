@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   match "tweets/date/:date", :to => "tweets#date", :via => :get
   get "timeline", to: "timeline#index"
   match "timeline/date/:date", :to => "timeline#date", :via => :get
+  match "reports/date/:date", :to => "reports#date", :via => :get
 end

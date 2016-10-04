@@ -13,6 +13,12 @@ class ReportsController < ApplicationController
     render json: @report
   end
 
+  # GET /reports/date/2016-06-24
+  def date
+    @report = Report.find_by date: params[:date]
+    render json: @report
+  end
+
   # POST /reports
   def create
     @report = Report.new(report_params)
