@@ -38,6 +38,7 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1
   def update
     if @task.update(task_params)
+      @action_save = false;
       @action = @task.task_action.build({
         user_id: @task.user_id,
         date: @task.date,
@@ -45,6 +46,7 @@ class TasksController < ApplicationController
 
       if task_params.has_key?(:priority)
         @action.action_type = TaskAction::ACTION_TYPE[:change_priority]
+        @action_save = true;
       end
 
       if task_params.has_key?(:status)
@@ -55,8 +57,12 @@ class TasksController < ApplicationController
         else
           @action.action_type = nil
         end
+        @action_save = true;
       end
-      @action.save
+
+      if @action_save
+        @action.save
+      end
 
       render json: @task
     else
