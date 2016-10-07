@@ -1,5 +1,5 @@
 class TaskActionSerializer < ActiveModel::Serializer
-  attributes :date, :type, :class_name, :target
+  attributes :date, :type, :class_name, :target, :created_at
 
   def class_name
     'task'
