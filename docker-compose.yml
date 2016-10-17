@@ -18,4 +18,4 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=root
     volumes:
-      - /Users/tanaka/Dropbox/workspace/docker/data/nippo-api
+      - /Users/tanaka/workspace/docker/data/nippo-api
