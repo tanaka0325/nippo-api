@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20161003121320) do
     t.integer  "user_id"
     t.integer  "target_id",                          null: false
     t.integer  "action_type",                        null: false
-    t.date     "date",        default: '2016-09-30', null: false
+    t.date     "date",        default: '2016-12-21', null: false
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
     t.index ["user_id"], name: "index_task_actions_on_user_id", using: :btree
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20161003121320) do
 
   create_table "tasks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
-    t.date     "date",       default: '2016-09-30', null: false
+    t.date     "date",       default: '2016-12-21', null: false
     t.string   "text",                              null: false
     t.integer  "status",     default: 1,            null: false
     t.integer  "priority",   default: 1,            null: false
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20161003121320) do
     t.integer  "user_id"
     t.integer  "target_id",                          null: false
     t.integer  "action_type",                        null: false
-    t.date     "date",        default: '2016-09-30', null: false
+    t.date     "date",        default: '2016-12-21', null: false
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
     t.index ["user_id"], name: "index_tweet_actions_on_user_id", using: :btree
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20161003121320) do
 
   create_table "tweets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
-    t.date     "date",       default: '2016-09-30', null: false
+    t.date     "date",       default: '2016-12-21', null: false
     t.integer  "status",     default: 1,            null: false
     t.string   "text",                              null: false
     t.datetime "created_at",                        null: false

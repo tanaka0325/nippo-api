@@ -6,10 +6,11 @@
 #
 default: &default
   adapter: mysql2
-  username: root
-  password: root
   encoding: utf8
-  url: <%= ENV.fetch('DATABASE_URL') %>
+  pool: 5
+  username: root
+  password:
+  host: mysql
   # adapter: sqlite3
   # pool: 5
   # timeout: 5000

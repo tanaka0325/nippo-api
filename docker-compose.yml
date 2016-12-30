@@ -1,21 +1,34 @@
 version: '2'
 services:
-  app:
+  app: &app_base
     build: .
-    environment:
-      RAILS_ENV: development
-      DATABASE_URL: mysql2://root:root@mysql:3306
     ports:
-      - 3000:3000
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+      - 9998:9998
+    command: bundle exec rails s -p 9998 -b '0.0.0.0'
     volumes:
       - .:/usr/src/nippo
-      - /usr/src/nippo/.bundle
     links:
       - mysql
+    tty: true
+    stdin_open: true
+  spring:
+    <<: *app_base
+    command: "bundle exec spring server"
+    ports: []
+    tty: false
+    stdin_open: false
   mysql:
     image: mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    volumes_from:
+      - datastore
+    ports:
+      - "3306:3306"
+  datastore:
+    image: "busybox"
     volumes:
-      - /Users/tanaka/workspace/docker/data/nippo-api
+      - mysql-data:/var/lib/mysql
+volumes:
+  mysql-data:
+    driver: local
