@@ -1,4 +1,4 @@
-FROM ruby:latest
+FROM ruby:2.3.3
 
 ENV APP_ROOT /usr/src/nippo
 WORKDIR $APP_ROOT
